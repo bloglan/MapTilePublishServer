@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace TileMapService
 {
+    [Obsolete]
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
@@ -22,7 +24,7 @@ namespace TileMapService
         public void Configure(IApplicationBuilder app)
         {
             app.UseAuthentication();
-            app.UseMiddleware<ErrorLoggingMiddleware>();
+            //app.UseMiddleware<ErrorLoggingMiddleware>();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();

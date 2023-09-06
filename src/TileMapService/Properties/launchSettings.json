@@ -3,10 +3,11 @@
     "Develop": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:5001",
+      "launchUrl": "https://localhost:65001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:65001"
     }
   }
 }

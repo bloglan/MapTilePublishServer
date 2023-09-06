@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using TileMapService.Models;
 
 namespace TileMapService.Controllers
 {
@@ -18,7 +20,7 @@ namespace TileMapService.Controllers
         [HttpGet("sources")]
         public IActionResult GetSources()
         {
-            var result = this.tileSourceFabric.Sources;
+            var result = this.tileSourceFabric.Sources.Select(p => new TileSourceModel(p.Type, p.Id, p.Format, p.Title, p.Abstract, p.Tms, p.MinZoom, p.MaxZoom, p.Srs));
             return Ok(result);
         }
 

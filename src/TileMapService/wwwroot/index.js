@@ -6,7 +6,7 @@
         if (xhr.status === 200) {
             var sources = xhr.response;
             configureWebMercatorMap(createWebMercatorSources(sources));
-            configureGeodeticMap(createGeodeticSources(sources));
+            //configureGeodeticMap(createGeodeticSources(sources));
         }
     }
 
@@ -67,7 +67,7 @@
         });
 
         var overlayMaps = {
-            'Tile Grid': tileGrid
+            '显示网格和编号': tileGrid
         };
 
         var map = L.map('mapMercator', {
@@ -75,7 +75,7 @@
             doubleClickZoom: false,
             crs: L.CRS.EPSG3857, // Default
             layers: [baseMaps[Object.keys(baseMaps)[0]]]
-        }).setView([0, 0], 0);
+        }).setView([35, 102], 5);
 
         L.control.layers(baseMaps, overlayMaps, {
             collapsed: false
