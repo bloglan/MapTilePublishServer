@@ -1,12 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Globalization;
-using System.IO;
-using System.Linq;
+﻿using System.Globalization;
 using System.Net;
-using System.Net.Http;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Xml;
 
 using MBT = TileMapService.MBTiles;

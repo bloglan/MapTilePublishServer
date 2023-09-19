@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-using Npgsql;
+﻿using Npgsql;
 
 namespace TileMapService.TileSources
 {

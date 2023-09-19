@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace TileMapService
+﻿namespace TileMapService
 {
     public interface ITileSourceFabric
     {

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-
-namespace TileMapService
+﻿namespace TileMapService
 {
     [Obsolete]
     public class Startup

@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-using BitMiracle.LibTiff.Classic;
+﻿using BitMiracle.LibTiff.Classic;
 using SkiaSharp;
 
 using TileMapService.GeoTiff;
@@ -238,22 +235,12 @@ namespace TileMapService.Utils
             var yResolution = tiff.GetField(TiffTag.XRESOLUTION);
 
             // ModelPixelScale [units/px]  https://freeimage.sourceforge.io/fnet/html/CC586183.htm
-            var modelPixelScale = tiff.GetField(TiffTag.GEOTIFF_MODELPIXELSCALETAG);
-            if (modelPixelScale == null)
-            {
-                throw new FormatException($"GeoTIFF tag '{TiffTag.GEOTIFF_MODELPIXELSCALETAG}' was not found in {path}.");
-            }
-
+            var modelPixelScale = tiff.GetField(TiffTag.GEOTIFF_MODELPIXELSCALETAG) ?? throw new FormatException($"GeoTIFF tag '{TiffTag.GEOTIFF_MODELPIXELSCALETAG}' was not found in {path}.");
             var pixelSizesCount = modelPixelScale[0].ToInt();
             var pixelSizes = modelPixelScale[1].ToDoubleArray();
 
             // ModelTiePoints  https://freeimage.sourceforge.io/fnet/html/38F9430A.htm
-            var tiePointTag = tiff.GetField(TiffTag.GEOTIFF_MODELTIEPOINTTAG);
-            if (tiePointTag == null)
-            {
-                throw new FormatException($"GeoTIFF tag '{TiffTag.GEOTIFF_MODELTIEPOINTTAG}' was not found in {path}.");
-            }
-
+            var tiePointTag = tiff.GetField(TiffTag.GEOTIFF_MODELTIEPOINTTAG) ?? throw new FormatException($"GeoTIFF tag '{TiffTag.GEOTIFF_MODELTIEPOINTTAG}' was not found in {path}.");
             var tiePointsCount = tiePointTag[0].ToInt();
             var tiePoints = tiePointTag[1].ToDoubleArray();
 

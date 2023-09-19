@@ -1,9 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Xml;
 
 using Microsoft.Extensions.Hosting;

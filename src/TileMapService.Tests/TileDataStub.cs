@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 
 namespace TileMapService.Tests
@@ -53,12 +52,12 @@ namespace TileMapService.Tests
             return Encoding.UTF8.GetBytes(json);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return Equals(obj as TileDataStub);
         }
 
-        public bool Equals(TileDataStub other)
+        public bool Equals(TileDataStub? other)
         {
             return other != null &&
                 this.tileColumn == other.tileColumn &&

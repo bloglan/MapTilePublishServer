@@ -1,10 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
+﻿using System.Globalization;
 using System.Net;
-using System.Net.Http;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Xml;
 
 using Microsoft.Extensions.Hosting;
@@ -117,9 +113,9 @@ namespace TileMapService.Tests
             var tmsXml = await r.Content.ReadAsStringAsync();
             var xml = new XmlDocument();
             xml.LoadXml(tmsXml);
-            var attributes = xml.SelectSingleNode("/Services/TileMapService").Attributes;
-            Assert.AreEqual("1.0.0", attributes["version"].Value);
-            var href = attributes["href"].Value;
+            var attributes = xml.SelectSingleNode("/Services/TileMapService")!.Attributes;
+            Assert.AreEqual("1.0.0", attributes["version"]!.Value);
+            var href = attributes["href"]!.Value;
 
             // 2. Sources
             r = await client.GetAsync(href);
@@ -127,7 +123,7 @@ namespace TileMapService.Tests
             tmsXml = await r.Content.ReadAsStringAsync();
             xml.LoadXml(tmsXml);
             var sources = xml.SelectNodes("/TileMapService/TileMaps/TileMap");
-            Assert.AreEqual(3, sources.Count);
+            Assert.AreEqual(3, sources!.Count);
             var hrefSource1 = sources[0].Attributes["href"].Value;
             var hrefSource2 = sources[1].Attributes["href"].Value;
             var hrefSource3 = sources[2].Attributes["href"].Value;
@@ -137,7 +133,7 @@ namespace TileMapService.Tests
             Assert.AreEqual(HttpStatusCode.OK, r.StatusCode);
             tmsXml = await r.Content.ReadAsStringAsync();
             xml.LoadXml(tmsXml);
-            Assert.AreEqual("World map", xml.SelectSingleNode("/TileMap/Abstract").InnerText);
+            Assert.AreEqual("World map", xml.SelectSingleNode("/TileMap/Abstract")!.InnerText);
             var tileFormat = xml.SelectSingleNode("/TileMap/TileFormat");
             Assert.AreEqual(512, Int32.Parse(tileFormat.Attributes["width"].Value, CultureInfo.InvariantCulture));
             Assert.AreEqual(512, Int32.Parse(tileFormat.Attributes["height"].Value, CultureInfo.InvariantCulture));

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using TileMapService.Models;
 
 namespace TileMapService.Controllers

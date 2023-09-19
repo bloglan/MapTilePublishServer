@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace TileMapService
+﻿namespace TileMapService
 {
     /// <summary>
     /// Represents common set of methods of tile source of any type.

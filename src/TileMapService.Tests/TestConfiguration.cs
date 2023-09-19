@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace TileMapService.Tests
+﻿namespace TileMapService.Tests
 {
     /// <summary>
     /// Test environment configuration (port number, path to temporary files)

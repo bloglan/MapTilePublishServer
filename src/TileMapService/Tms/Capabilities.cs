@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TileMapService.Tms
+﻿namespace TileMapService.Tms
 {
     class Capabilities
     {

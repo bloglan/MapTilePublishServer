@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Net;
+﻿using System.Net;
 
 namespace TileMapService
 {
